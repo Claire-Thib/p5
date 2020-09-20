@@ -3,17 +3,19 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   ring = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2FtreeRing.png?v=1600580843621");
+  ring2 = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2Ftreering2.png?v=1600581853562");
   realtree = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2Frealtree.png?v=1600581034759");
 
 
   button = createButton('Next Page');
-  button.position(19, 19);
-  button.mousePressed(changeBG);
+  button.position(width*0.55, height*0.7);
+  button.size('Next Page', height*0.06);
+  button.mousePressed(nextBackground);
 }
 
 function draw() {
   background(color(143, 181, 133));
-  textFont("Playfair Display")
+  textFont("Playfair Display");
   textSize(width*0.06);
   fill(0);
   text("Determing the Age of A Tree",width*0.15,height*0.15);
@@ -29,9 +31,10 @@ function draw() {
   text("The darker portion is called summerwood and the lighter is called springwood ", width*0.06, height *0.46);
   text("So a lighter ring + darker ring = one year", width*0.06, height *0.53);
 
-  image(ring, 100,100,100,100);
+  image(ring, width*0.1,height*0.6,width*0.2,height*0.3);
+  image(ring2,width*0.3, height*0.6,width*0.2,height*0.33);
 }
 
-function changeBG(){
+function nextBackground(){
   window.location.href = "interactive.html";
 }

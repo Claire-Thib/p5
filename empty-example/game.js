@@ -1,4 +1,4 @@
-let slider,button;
+let slider,button1,button2, checkbox;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -7,93 +7,116 @@ function setup() {
 
 
   slider = createSlider(0, 81, 0);
-  slider.position(width * 0.2, height*0.9);
+  slider.position(width * 0.15, height*0.8);
   sliderLength = str(width/2) + "px";
   slider.style('width', sliderLength);
 
-  button = createButton('click me');
-  button.position(19, 19);
-  button.mousePressed(changeBG);
+  button1 = createButton('Previous');
+  button1.size('Previous',height*0.06);
+  button1.position(width*0.7,height*0.78);
+  button1.mousePressed(previousBackground);
+
+//   button2 = createButton('Next');
+//   button2.size(width*0.1, height*0.06);
+//   button2.position(width*0.83,height*0.78);
+//   button2.mousePressed(nextBackground);
+
+
+    checkbox = createCheckbox('Labels', false);
+    checkbox.position(width*0.75,height*0.4);
+    checkbox.size(100);
+    checkbox.changed(myCheckedEvent);
+
 }
 
 function draw() {
   clear();
   background(color(120, 155.37, 195));
-  image(tree, width*0.07,height*0.3,width*0.3,width*0.3);
-  
-  // noStroke();
-  // fill(color(176, 192, 0));
-  // ellipse(width*0.6, height*0.6, width*0.03, width*0.03);
-  // stroke();
-  text("Time:", width*0.14, height *0.9);
+
+  textFont("Playfair Display");
+  textSize(width*0.06);
+  fill(0);
+  text("The Aging of A Tree",width*0.15,height*0.19);
+  textSize(width*0.03);
+  text("(Looking at the Trunk)",width*0.6,height*0.25);
+
+  textFont("Oswald");
+  fill(0);
+  textSize(width*0.025);
+  text("Time:", width*0.09, height *0.83);
 
 
   squareColor = color(178.5, 155.47, 101.75);
   squareColor.setAlpha(80);
   fill(squareColor);
+  stroke(102,79,25);
 
   let val = slider.value();
   if(val > 10){
-    ellipse(width*0.6, height*0.6, width*0.03, width*0.03);
+    ellipse(width*0.301, height*0.5, width*0.04, width*0.04);
   }
-  fill(squareColor);
   if(val > 20){
-    ellipse(width*0.601, height*0.601, width*0.05, width*0.05);
+    ellipse(width*0.301, height*0.502, width*0.06, width*0.06);
   }
-  fill(squareColor);
   if(val > 30){
-    ellipse(width*0.601, height*0.602, width*0.07, width*0.07);
+    ellipse(width*0.303, height*0.501, width*0.09, width*0.09);
   }
-  fill(squareColor);
   if(val > 40){
-    ellipse(width*0.601, height*0.6, width*0.09, width*0.09);
+    ellipse(width*0.301, height*0.5, width*0.11, width*0.11);
   }
-  fill(squareColor);
   if(val > 50){
-    ellipse(width*0.602, height*0.601, width*0.11, width*0.11);
+    ellipse(width*0.3, height*0.503, width*0.14, width*0.14);
   }
-  fill(squareColor);
   if(val > 60){
-    ellipse(width*0.601, height*0.601, width*0.13, width*0.13);
+    ellipse(width*0.302, height*0.503, width*0.17, width*0.17);
   }
-  fill(squareColor);
   if(val > 70){
-    ellipse(width*0.601, height*0.6, width*0.15, width*0.15);
+    ellipse(width*0.302, height*0.5, width*0.21, width*0.21);
   }
-  fill(squareColor);
   if(val > 80){
-    ellipse(width*0.6, height*0.601, width*0.17, width*0.17);
-    image(bark, width*0.508, height*0.43, width*0.187, width*0.197);
-
+    ellipse(width*0.301, height*0.5, width*0.22, width*0.22);
+    noFill();
+    strokeWeight(6);
+    ellipse(width*0.301, height*0.5, width*0.225, width*0.225);
+    strokeWeight(1);
   }
+
 
   fill(0)
   if(val > 80){
-    text("Eight Years", width*0.4, height *0.7);
+    text("Eight Years", width*0.57, height *0.5);
   }else if(val>70){
-    text("Seven Years", width*0.4, height *0.7);
+    text("Seven Years", width*0.57, height *0.5);
   }else if(val>60){
-    text("Six Years", width*0.4, height *0.7);
+    text("Six Years", width*0.57, height *0.5);
   }else if(val>50){
-    text("Five Years", width*0.4, height *0.7);
+    text("Five Years", width*0.57, height *0.5);
   }else if(val>40){
-    text("Four Years", width*0.4, height *0.7);
+    text("Four Years", width*0.57, height *0.5);
   }else if(val>30){
-    text("Three Years", width*0.4, height *0.7);
+    text("Three Years", width*0.57, height *0.5);
   }else if(val>20){
-    text("Two Years", width*0.4, height *0.7);
+    text("Two Years", width*0.57, height *0.5);
   }else if(val>10){
-    text("One Year", width*0.4, height *0.7);
+    text("One Year", width*0.57, height *0.5);
   }
 
-
-  // image(ring1, 100,100,100,100)
-  // if(val > 20){
-  //   ellipse(width/1.99, height/2, 75, 75);
-  // }
+  text("Age of Tree:", width* 0.5, height*0.4, width*0.6,height*0.25);
   
 }
 
-function changeBG(){
+function previousBackground(){
   window.location.href = "index.html";
+}
+
+// function nextBackground(){
+//     window.location.href = "index.html";
+//   }
+
+function myCheckedEvent(){
+    if (this.checked()) {
+        console.log('Checking!');
+      } else {
+        console.log('Unchecking!');
+      }
 }
