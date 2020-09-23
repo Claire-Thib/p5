@@ -1,4 +1,31 @@
 body {
-    background-image: url("https://www.clker.com/cliparts/E/l/Y/R/U/7/lined-paper.svg");
+    background-color: rgb(165, 133, 162);
     
+  }
+
+  h1{
+    color: black;
+    font-weight: 100;
+    font-display: swap;
+    text-decoration: underline;
+    font-family: "Playfair Display";
+  
+  }
+
+  #mentored{
+    padding-left: 8%;
+  }
+
+  #enviro{
+    padding-right: 8%;
+    align-self: left;
+  }
+
+  #return{
+    color: black;
+    font-weight: 100;
+    font-size: x-large;
+    font-display: swap;
+    text-decoration: underline;
+    font-family: "Oswald";
   }

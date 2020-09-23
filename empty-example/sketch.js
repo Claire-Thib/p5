@@ -1,4 +1,4 @@
-let button;
+let button, music;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -11,6 +11,11 @@ function setup() {
   button.position(width*0.55, height*0.7);
   button.size('Next Page', height*0.06);
   button.mousePressed(nextBackground);
+
+  music = createButton('Vibez?');
+  music.position(width*0.03, height*0.9);
+  music.size('Vibez?', height*0.06);
+  music.mousePressed(goMusic);
 }
 
 function draw() {
@@ -37,4 +42,8 @@ function draw() {
 
 function nextBackground(){
   window.location.href = "interactive.html";
+}
+
+function goMusic(){
+  window.location.href = "music.html";
 }

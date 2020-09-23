@@ -1,4 +1,4 @@
-let slider,button1,button2, checkbox;
+let slider,button1,button2, radio, music;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -16,16 +16,15 @@ function setup() {
   button1.position(width*0.7,height*0.78);
   button1.mousePressed(previousBackground);
 
-//   button2 = createButton('Next');
-//   button2.size(width*0.1, height*0.06);
-//   button2.position(width*0.83,height*0.78);
-//   button2.mousePressed(nextBackground);
+  button2 = createButton('Next');
+  button2.size(width*0.1, height*0.06);
+  button2.position(width*0.83,height*0.78);
+  button2.mousePressed(nextBackground);
 
-
-    checkbox = createCheckbox('Labels', false);
-    checkbox.position(width*0.75,height*0.4);
-    checkbox.size(100);
-    checkbox.changed(myCheckedEvent);
+  music = createButton('Vibez?');
+  music.position(width*0.03, height*0.9);
+  music.size('Vibez?', height*0.06);
+  music.mousePressed(goMusic);
 
 }
 
@@ -53,55 +52,79 @@ function draw() {
 
   let val = slider.value();
   if(val > 10){
-    ellipse(width*0.301, height*0.5, width*0.04, width*0.04);
+    ellipse(width*0.401, height*0.5, width*0.04, width*0.04);
   }
   if(val > 20){
-    ellipse(width*0.301, height*0.502, width*0.06, width*0.06);
+    ellipse(width*0.401, height*0.502, width*0.06, width*0.06);
   }
   if(val > 30){
-    ellipse(width*0.303, height*0.501, width*0.09, width*0.09);
+    ellipse(width*0.403, height*0.501, width*0.09, width*0.09);
   }
   if(val > 40){
-    ellipse(width*0.301, height*0.5, width*0.11, width*0.11);
+    ellipse(width*0.401, height*0.5, width*0.11, width*0.11);
   }
   if(val > 50){
-    ellipse(width*0.3, height*0.503, width*0.14, width*0.14);
+    ellipse(width*0.4, height*0.503, width*0.14, width*0.14);
   }
   if(val > 60){
-    ellipse(width*0.302, height*0.503, width*0.17, width*0.17);
+    ellipse(width*0.402, height*0.503, width*0.17, width*0.17);
   }
   if(val > 70){
-    ellipse(width*0.302, height*0.5, width*0.21, width*0.21);
+    ellipse(width*0.402, height*0.5, width*0.21, width*0.21);
   }
   if(val > 80){
-    ellipse(width*0.301, height*0.5, width*0.22, width*0.22);
+    ellipse(width*0.401, height*0.5, width*0.22, width*0.22);
     noFill();
     strokeWeight(6);
-    ellipse(width*0.301, height*0.5, width*0.225, width*0.225);
+    ellipse(width*0.401, height*0.5, width*0.225, width*0.225);
     strokeWeight(1);
+
+    fill(0);
+    textSize(width*0.019);
+    text("Hover over the trunk to see it labeled", width*0.05, height*0.7);
+
+    stroke(3)
+    if(mouseX > width*.28 && mouseX < width*0.53 && mouseY > height*0.33 && mouseY < height *0.67){
+      line(width*0.517,height*0.5,width*0.6,height*0.4);
+      text("Bark - conserves and protects tree", width*0.61,height*0.4);
+      line(width*0.49,height*0.55,width*0.6,height*0.5);
+      text("Springwood - formed earlier during grower season", width*0.61,height*0.5);
+      text("and made up of tissues with wider vessels which is", width*0.61,height*0.54);
+      text(" why springwood is usually thicker than summerwood", width*0.61,height*0.58);
+      line(width*.451,height*0.59,width*0.6,height*0.65);
+      text("Summerwood -grows slower because", width*0.61,height*0.648);
+      text("composed of tissues with narrower vessels ", width*0.61,height*0.688);
+
+      strokeWeight(8);
+      point(width*0.517,height*0.5);
+      point(width*0.49,height*0.55);
+      point(width*.451,height*0.593);
+      strokeWeight(1);
+    }
+
   }
 
-
+  textSize(width*0.025);
   fill(0)
   if(val > 80){
-    text("Eight Years", width*0.57, height *0.5);
+    text("Eight Years", width*0.1, height *0.5);
   }else if(val>70){
-    text("Seven Years", width*0.57, height *0.5);
+    text("Seven Years", width*0.1, height *0.5);
   }else if(val>60){
-    text("Six Years", width*0.57, height *0.5);
+    text("Six Years", width*0.1, height *0.5);
   }else if(val>50){
-    text("Five Years", width*0.57, height *0.5);
+    text("Five Years", width*0.1, height *0.5);
   }else if(val>40){
-    text("Four Years", width*0.57, height *0.5);
+    text("Four Years", width*0.1, height *0.5);
   }else if(val>30){
-    text("Three Years", width*0.57, height *0.5);
+    text("Three Years", width*0.1, height *0.5);
   }else if(val>20){
-    text("Two Years", width*0.57, height *0.5);
+    text("Two Years", width*0.1, height *0.5);
   }else if(val>10){
-    text("One Year", width*0.57, height *0.5);
+    text("One Year", width*0.1, height *0.5);
   }
 
-  text("Age of Tree:", width* 0.5, height*0.4, width*0.6,height*0.25);
+  text("Age of Tree:", width* 0.05, height*0.4, width*0.6,height*0.25);
   
 }
 
@@ -109,14 +132,10 @@ function previousBackground(){
   window.location.href = "index.html";
 }
 
-// function nextBackground(){
-//     window.location.href = "index.html";
-//   }
+function nextBackground(){
+    window.location.href = "labeling.html";
+  }
 
-function myCheckedEvent(){
-    if (this.checked()) {
-        console.log('Checking!');
-      } else {
-        console.log('Unchecking!');
-      }
+function goMusic(){
+  window.location.href = "music.html";
 }
