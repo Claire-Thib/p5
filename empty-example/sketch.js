@@ -1,20 +1,33 @@
-let button, music;
+let button, music, buttonFontSize;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
 
   ring = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2FtreeRing.png?v=1600580843621");
   ring2 = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2Ftreering2.png?v=1600581853562");
   realtree = loadImage("https://cdn.glitch.com/c02ee8f4-aba0-4a23-a05a-e25ad2f42c63%2Frealtree.png?v=1600581034759");
 
-
+  buttonFontSize = width * 0.06;
   button = createButton('Next Page');
   button.position(width*0.55, height*0.7);
+  button.style('background-color', color(94, 133, 166));
+  button.style('border-radius', '12px');
+  button.style('cursor', 'pointer');
+  button.style('border', 'double');
+  button.style('font-size', '110%')
+  button.style('font-family', 'Oswald');
+
   button.size('Next Page', height*0.06);
   button.mousePressed(nextBackground);
 
   music = createButton('Vibez?');
   music.position(width*0.03, height*0.9);
+  music.style('background-color', color(94, 133, 166));
+  music.style('border-radius', '12px');
+  music.style('cursor', 'pointer');
+  music.style('border', 'double');
   music.size('Vibez?', height*0.06);
+  music.style('font-family', 'Oswald');
   music.mousePressed(goMusic);
 }
 

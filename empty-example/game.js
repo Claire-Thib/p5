@@ -1,4 +1,4 @@
-let slider,button1,button2, radio, music;
+let slider,button1,button2, radio, music, instructions;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -10,21 +10,41 @@ function setup() {
   slider.position(width * 0.15, height*0.8);
   sliderLength = str(width/2) + "px";
   slider.style('width', sliderLength);
+  slider.style('cursor', 'pointer');
+  // slider.style('background', bark);
 
   button1 = createButton('Previous');
   button1.size('Previous',height*0.06);
   button1.position(width*0.7,height*0.78);
   button1.mousePressed(previousBackground);
+  button1.style('background-color', color(104, 86, 146));
+  button1.style('border-radius', '12px');
+  button1.style('cursor', 'pointer');
+  button1.style('border', 'double');
+  button1.style('font-size', '110%')
+  button1.style('font-family', 'Oswald');
+  
 
   button2 = createButton('Next');
   button2.size(width*0.1, height*0.06);
   button2.position(width*0.83,height*0.78);
   button2.mousePressed(nextBackground);
+  button2.style('background-color', color(104, 86, 146));
+  button2.style('border-radius', '12px');
+  button2.style('cursor', 'pointer');
+  button2.style('border', 'double');
+  button2.style('font-size', '110%')
+  button2.style('font-family', 'Oswald');
 
   music = createButton('Vibez?');
   music.position(width*0.03, height*0.9);
   music.size('Vibez?', height*0.06);
   music.mousePressed(goMusic);
+  music.style('background-color', color(104, 86, 146));
+  music.style('border-radius', '12px');
+  music.style('cursor', 'pointer');
+  music.style('border', 'double');
+  music.style('font-family', 'Oswald');
 
 }
 
@@ -79,10 +99,13 @@ function draw() {
     ellipse(width*0.401, height*0.5, width*0.225, width*0.225);
     strokeWeight(1);
 
-    fill(0);
+    fill(255);
     textSize(width*0.019);
-    text("Hover over the trunk to see it labeled", width*0.05, height*0.7);
+    text("HOVER OVER TREE RING FOR LABELING", width*0.05, height*0.7);
+    fill(0);
 
+
+    // instructions.removeItem();
     stroke(3)
     if(mouseX > width*.28 && mouseX < width*0.53 && mouseY > height*0.33 && mouseY < height *0.67){
       line(width*0.517,height*0.5,width*0.6,height*0.4);
@@ -100,7 +123,9 @@ function draw() {
       point(width*0.49,height*0.55);
       point(width*.451,height*0.593);
       strokeWeight(1);
-    }
+      
+
+      }
 
   }
 

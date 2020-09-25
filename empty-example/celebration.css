@@ -1,0 +1,108 @@
+body {
+    background-color: rgb(98, 158, 155);
+    padding-bottom: 0px;
+    margin: 0;
+  }
+
+#celebrate{
+    position: relative;
+    top: 20px;
+    left: 60%;
+
+}
+
+h2{
+    font-size: 25px;
+    font-family: "Oswald";
+}
+
+h3{
+    font-size: 25px;
+    font-family: "Oswald";
+    text-decoration: underline;
+}
+
+
+#congrats{
+    font-family: "Oswald";
+    font-size: 175%;
+    position: relative;
+    top:20px;
+    left:40px;
+}
+
+.timeline {
+    white-space:nowrap;
+    overflow-x: scroll;
+    padding:30px 0 10px 0;
+    position:relative;
+}
+
+.entry {
+    display:inline-block;
+    vertical-align:top;
+    background:#795392;
+    color:#fff;
+    padding:10px;
+    font-family: "Oswald";
+    font-size:12px;
+    text-align:center;
+    position:relative;
+    border-top:4px solid #06182E;
+    border-radius:3px;
+    min-width:200px;
+    max-width:500px;
+	font-family: 'Cabin';
+}
+
+.entry img {
+    display:block;
+    max-width:100%;
+    height:auto;
+    margin-bottom:10%;
+}
+
+.entry:after {
+    content:'';
+    display:block;
+    background:#eee;
+    width:2%;
+    height:3%;
+    border-radius:6px;
+    border:3px solid #06182E;
+    position:absolute;
+    left:50%;
+    top:-30px;
+    margin-left:-6px;
+}
+
+.entry:before {
+    content:'';
+    display:block;
+    background:#06182E;
+    width:5px;
+    height:20px;
+    position:absolute;
+    left:50%;
+    top:-20px;
+    margin-left:-2px;
+}
+
+.entry h1 {
+	color:#fff;
+	font-size:25px;
+	font-family:'Oswald';
+	font-weight:bold;
+	margin-bottom:8%;
+	text-decoration: underline;
+}
+
+
+.bar {
+    height:4px;
+    background:#eee;
+    width:100%;
+    position:relative;
+    top:13px;
+    left:0;
+}
